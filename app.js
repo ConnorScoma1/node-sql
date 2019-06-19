@@ -1,5 +1,29 @@
 var inquirer = require("inquirer");
 
+var mySql = require("mysql");
+
+var connection = mySql.createConnection({
+    host: "localhost",
+    // Port
+    port: 3306,
+    // User 
+    user: 'root',
+    // DB Password
+    password: '54377Sco',
+    //DB Name
+    database: 'store_db'
+  
+  });
+
+connection.connect(function(err) {
+  if (err) {
+      throw err
+  }
+  console.log('\n=================')
+  console.log('Thread Number ' + connection.threadId);
+  console.log('=================')
+
+
 inquirer
   .prompt([
     {
@@ -46,3 +70,5 @@ inquirer
           }
       })
   }
+
+});
